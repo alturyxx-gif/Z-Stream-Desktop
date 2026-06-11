@@ -7,7 +7,7 @@ const { spawn } = require('child_process');
 const { NetworkError } = require('../utils/errors');
 
 const GITHUB_OWNER = 'kua8';
-const GITHUB_REPO = 'P-Stream-Desktop';
+const GITHUB_REPO = 'Z-Stream-Desktop';
 const DEFAULT_TIMEOUT = 10000;
 const DEFAULT_MAX_RETRIES = 3;
 const DEFAULT_RETRY_DELAY = 2000;
@@ -70,7 +70,7 @@ class AutoUpdaterService {
     return new Promise((resolve, reject) => {
       const options = {
         headers: {
-          'User-Agent': 'P-Stream-Desktop-Updater',
+          'User-Agent': 'Z-Stream-Desktop-Updater',
           Accept: 'application/vnd.github.v3+json',
         },
       };
@@ -147,7 +147,7 @@ class AutoUpdaterService {
         const reqOptions = {
           hostname: urlObj.hostname,
           path: urlObj.pathname + urlObj.search,
-          headers: { 'User-Agent': 'P-Stream-Desktop-Updater' },
+          headers: { 'User-Agent': 'Z-Stream-Desktop-Updater' },
           timeout: this.timeout,
         };
 

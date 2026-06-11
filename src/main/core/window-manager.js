@@ -43,7 +43,7 @@ class WindowManager {
       minWidth: DEFAULT_MAIN_WINDOW_MIN_WIDTH,
       minHeight: DEFAULT_MAIN_WINDOW_MIN_HEIGHT,
       frame: false,
-      title: 'P-Stream',
+      title: 'Z-Stream',
       webPreferences: { contextIsolation: true },
       backgroundColor: '#0d0d0d',
       ...(this.appIcon ? { icon: this.appIcon } : {}),
@@ -96,7 +96,7 @@ class WindowManager {
       setTimeout(() => {
         site.webContents.executeJavaScript(`
           (function() {
-            console.log('[P-Stream] Injecting media metadata monitor...');
+            console.log('[Z-Stream] Injecting media metadata monitor...');
             
             let lastMetadata = null;
             let lastProgress = null;
@@ -133,7 +133,7 @@ class WindowManager {
               // Fallback: extract from page DOM
               if (!title) {
                 const titleEl = document.querySelector('h1, [class*="title"], [class*="heading"]');
-                title = titleEl?.textContent?.trim() || document.title.replace(' - P-Stream', '').trim();
+                title = titleEl?.textContent?.trim() || document.title.replace(' - Z-Stream', '').trim();
               }
               
               // Try to find poster from og:image or page images
@@ -188,7 +188,7 @@ class WindowManager {
                   lastProgress = null;
                   if (typeof window.updateMediaMetadata === 'function') {
                     window.updateMediaMetadata(null).catch(e => 
-                      console.error('[P-Stream] updateMediaMetadata error:', e)
+                      console.error('[Z-Stream] updateMediaMetadata error:', e)
                     );
                   }
                 }
@@ -207,11 +207,11 @@ class WindowManager {
                 lastMetadata = metaStr;
                 lastProgress = progStr;
                 
-                console.log('[P-Stream] Sending metadata update:', data);
+                console.log('[Z-Stream] Sending metadata update:', data);
                 
                 if (typeof window.updateMediaMetadata === 'function') {
                   window.updateMediaMetadata(data).catch(e => 
-                    console.error('[P-Stream] updateMediaMetadata error:', e)
+                    console.error('[Z-Stream] updateMediaMetadata error:', e)
                   );
                 }
               }
@@ -226,7 +226,7 @@ class WindowManager {
             document.addEventListener('ended', sendUpdate, true);
             document.addEventListener('timeupdate', sendUpdate, true);
             
-            console.log('[P-Stream] Media metadata monitor active');
+            console.log('[Z-Stream] Media metadata monitor active');
           })();
         `).catch(err => this.logger.error('Failed to inject metadata monitor', err));
       }, 3000);
@@ -268,7 +268,7 @@ class WindowManager {
       height: DEFAULT_SETTINGS_WINDOW_HEIGHT,
       resizable: false,
       frame: false,
-      title: 'P-Stream Settings',
+      title: 'Z-Stream Settings',
       webPreferences: {
         preload: path.join(__dirname, '../../preload/preload.js'),
         contextIsolation: true,
@@ -300,7 +300,7 @@ class WindowManager {
       height: DEFAULT_SETUP_WINDOW_HEIGHT,
       resizable: false,
       frame: false,
-      title: 'P-Stream Setup',
+      title: 'Z-Stream Setup',
       webPreferences: {
         preload: path.join(__dirname, '../../preload/preload.js'),
         contextIsolation: true,

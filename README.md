@@ -1,10 +1,10 @@
-# P-Stream Desktop
+# Z-Stream Desktop
 
-Desktop app for P-Stream that provides enhanced streaming capabilities.
+Desktop app for Z-Stream that provides enhanced streaming capabilities.
 
 ## Features
 
-- Native desktop wrapper for P-Stream
+- Native desktop wrapper for Z-Stream
 - Enhanced streaming capabilities
 - Automatic update checking from GitHub releases
 - Discord Rich Presence integration
@@ -12,7 +12,7 @@ Desktop app for P-Stream that provides enhanced streaming capabilities.
 
 ## Installation
 
-Download the latest [release](https://github.com/kua8/P-Stream-Desktop/releasess)
+Download the latest [release](https://github.com/kua8/Z-Stream-Desktop/releasess)
 
 For **MacOS** it will fail to open, go to Settings > Privacy and Security, and press `Open Anyway`. Confirm with password or Touch ID!
 

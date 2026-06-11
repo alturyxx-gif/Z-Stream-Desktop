@@ -73,7 +73,7 @@ const IPC_OPEN_OFFLINE = 'open-offline';
 /**
  * Default application settings
  */
-const DEFAULT_STREAM_URL = 'pstream.net';
+const DEFAULT_STREAM_URL = 'zstream.mov';
 const DEFAULT_DISCORD_RPC_ENABLED = true;
 const DEFAULT_WARP_ENABLED = false;
 const DEFAULT_WARP_LAUNCH_ENABLED = false;
@@ -121,7 +121,7 @@ const WARP_CLI_TIMEOUT = 10000;
 /**
  * Application identifiers
  */
-const DEFAULT_APP_ID = 'com.pstream.desktop';
+const DEFAULT_APP_ID = 'com.zstream.desktop';
 
 /**
  * File names
@@ -139,12 +139,12 @@ const VOLUME_BOOST_MAX = 10.0;
  * Extension flags exposed to web content
  */
 const EXTENSION_FLAGS = {
-  PSTREAM_DESKTOP: '__PSTREAM_DESKTOP__',
+  ZSTREAM_DESKTOP: '__ZSTREAM_DESKTOP__',
   MW_DESKTOP: '__MW_DESKTOP__',
   SUDO_DESKTOP: '__SUDO_DESKTOP__',
   EXTENSION_ACTIVE: '__EXTENSION_ACTIVE__',
-  PSTREAM_EXTENSION: '__PSTREAM_EXTENSION__',
-  PSTREAM_EXTENSION_CACHED: '__PSTREAM_EXTENSION_CACHED__',
+  ZSTREAM_EXTENSION: '__ZSTREAM_EXTENSION__',
+  ZSTREAM_EXTENSION_CACHED: '__ZSTREAM_EXTENSION_CACHED__',
 };
 
 /**

@@ -181,13 +181,13 @@ class DiscordRPCService {
   _buildActivity(metadata) {
     if (!metadata) {
       return {
-        details: 'P-Stream',
+        details: 'Z-Stream',
         state: 'Browsing',
         startTimestamp: new Date(),
         largeImageKey: 'logo',
-        largeImageText: 'P-Stream',
+        largeImageText: 'Z-Stream',
         instance: false,
-        buttons: [{ label: 'Use P-Stream', url: this._getStreamUrl() }],
+        buttons: [{ label: 'Use Z-Stream', url: this._getStreamUrl() }],
       };
     }
 
@@ -198,7 +198,7 @@ class DiscordRPCService {
       }
     }
 
-    const activityName = metadata.artist || metadata.title || 'P-Stream';
+    const activityName = metadata.artist || metadata.title || 'Z-Stream';
 
     const activity = {
       name: activityName,
@@ -206,11 +206,11 @@ class DiscordRPCService {
       state: 'Loading...',
       startTimestamp: new Date(),
       largeImageKey,
-      largeImageText: metadata.artist || metadata.title || 'P-Stream',
+      largeImageText: metadata.artist || metadata.title || 'Z-Stream',
       smallImageKey: 'logo_no_bg',
-      smallImageText: 'P-Stream',
+      smallImageText: 'Z-Stream',
       instance: false,
-      buttons: [{ label: 'Use P-Stream', url: this._getStreamUrl() }],
+      buttons: [{ label: 'Use Z-Stream', url: this._getStreamUrl() }],
     };
 
     if (metadata.isPlaying) {
@@ -239,9 +239,9 @@ class DiscordRPCService {
    */
   _getStreamUrl() {
     if (!this.store) {
-      return 'https://pstream.net/';
+      return 'https://zstream.mov/';
     }
-    const streamUrl = this.store.get('streamUrl', 'pstream.net');
+    const streamUrl = this.store.get('streamUrl', 'zstream.mov');
     return streamUrl.startsWith('http://') || streamUrl.startsWith('https://') 
       ? streamUrl 
       : `https://${streamUrl}/`;
@@ -252,7 +252,7 @@ class DiscordRPCService {
    */
   _getActivityName(metadata) {
     if (!metadata?.title) {
-      return 'P-Stream';
+      return 'Z-Stream';
     }
     return metadata.artist ? metadata.artist : metadata.title;
   }
@@ -263,7 +263,7 @@ class DiscordRPCService {
    */
   _getMediaTitle(metadata) {
     if (!metadata?.title) {
-      return 'P-Stream';
+      return 'Z-Stream';
     }
 
     const hasSeason = metadata.season != null && !isNaN(metadata.season);
@@ -286,7 +286,7 @@ class DiscordRPCService {
    */
   _getTitlebarText(metadata) {
     if (!metadata?.title) {
-      return 'PSTREAM';
+      return 'ZSTREAM';
     }
 
     const parts = [];
@@ -377,7 +377,7 @@ class DiscordRPCService {
 
     const activity = {
       type: DISCORD_ACTIVITY_TYPE_WATCHING,
-      name: args.name ?? 'P-Stream',
+      name: args.name ?? 'Z-Stream',
       state: args.state ?? undefined,
       details: args.details ?? undefined,
       timestamps,

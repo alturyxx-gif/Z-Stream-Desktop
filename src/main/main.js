@@ -30,9 +30,9 @@ const appIcon = fs.existsSync(iconPath) ? nativeImage.createFromPath(iconPath) :
 
 try {
   const pkg = require('../../package.json');
-  app.setAppUserModelId((pkg.build && pkg.build.appId) || pkg.name || 'com.pstream.desktop');
+  app.setAppUserModelId((pkg.build && pkg.build.appId) || pkg.name || 'com.zstream.desktop');
 } catch {
-  app.setAppUserModelId('com.pstream.desktop');
+  app.setAppUserModelId('com.zstream.desktop');
 }
 
 let storage;
@@ -73,7 +73,7 @@ async function initialize() {
     ipcHandlers.setupInterceptors(session.defaultSession, {
       getStreamHostname: () => {
         try {
-          const url = storage.get('streamUrl', 'pstream.net');
+          const url = storage.get('streamUrl', 'zstream.mov');
           return new URL(url.startsWith('http') ? url : `https://${url}`).hostname;
         } catch {
           return null;
@@ -208,7 +208,7 @@ function registerAppIPCHandlers() {
   });
 
   ipcMain.handle('open-releases-page', () => {
-    require('electron').shell.openExternal('https://github.com/xp-technologies-dev/p-stream/releases');
+    require('electron').shell.openExternal('https://github.com/xp-technologies-dev/z-stream/releases');
   });
 
   ipcMain.handle('get-discord-rpc', () => storage.get('discordRPCEnabled', true));
@@ -273,21 +273,21 @@ function applyVolumeBoost(webContents, val) {
   if (!webContents || webContents.isDestroyed()) return;
   webContents.executeJavaScript(`
     (function() {
-      if (!window.__pstreamAudioCtx) {
+      if (!window.__zstreamAudioCtx) {
         try {
-          window.__pstreamAudioCtx = new AudioContext();
-          window.__pstreamGain = window.__pstreamAudioCtx.createGain();
-          window.__pstreamGain.connect(window.__pstreamAudioCtx.destination);
+          window.__zstreamAudioCtx = new AudioContext();
+          window.__zstreamGain = window.__zstreamAudioCtx.createGain();
+          window.__zstreamGain.connect(window.__zstreamAudioCtx.destination);
           const _orig = document.createElement.bind(document);
           document.createElement = function(tag) {
             const el = _orig(tag);
             if (tag === 'audio' || tag === 'video') {
               setTimeout(() => {
                 try {
-                  if (!el.__pstreamHooked) {
-                    el.__pstreamHooked = true;
-                    const src = window.__pstreamAudioCtx.createMediaElementSource(el);
-                    src.connect(window.__pstreamGain);
+                  if (!el.__zstreamHooked) {
+                    el.__zstreamHooked = true;
+                    const src = window.__zstreamAudioCtx.createMediaElementSource(el);
+                    src.connect(window.__zstreamGain);
                   }
                 } catch {}
               }, 200);
@@ -296,17 +296,17 @@ function applyVolumeBoost(webContents, val) {
           };
           document.querySelectorAll('audio,video').forEach(el => {
             try {
-              if (!el.__pstreamHooked) {
-                el.__pstreamHooked = true;
-                const src = window.__pstreamAudioCtx.createMediaElementSource(el);
-                src.connect(window.__pstreamGain);
+              if (!el.__zstreamHooked) {
+                el.__zstreamHooked = true;
+                const src = window.__zstreamAudioCtx.createMediaElementSource(el);
+                src.connect(window.__zstreamGain);
               }
             } catch {}
           });
-        } catch(e) { console.warn('[PSTREAM] Audio boost init:', e); }
+        } catch(e) { console.warn('[ZSTREAM] Audio boost init:', e); }
       }
-      if (window.__pstreamGain) {
-        window.__pstreamGain.gain.setTargetAtTime(${val}, window.__pstreamAudioCtx.currentTime, 0.01);
+      if (window.__zstreamGain) {
+        window.__zstreamGain.gain.setTargetAtTime(${val}, window.__zstreamAudioCtx.currentTime, 0.01);
       }
     })();
   `).catch(() => {});

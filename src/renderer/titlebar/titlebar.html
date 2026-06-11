@@ -26,13 +26,13 @@
   </style>
 </head>
 <body>
-  <div style="display:flex;align-items:center;gap:7px;"><img src="logo.png" width="16" height="16" style="border-radius:3px;" draggable="false"/><span id="titleText" title="PSTREAM">PSTREAM</span></div>
+  <div style="display:flex;align-items:center;gap:7px;"><img src="logo.png" width="16" height="16" style="border-radius:3px;" draggable="false"/><span id="titleText" title="ZSTREAM">ZSTREAM</span></div>
   <script>
     window.electronAPI.onTitleUpdate?.((title) => {
       const el = document.getElementById('titleText');
       if (el) {
-        el.textContent = title || 'PSTREAM';
-        el.title = title || 'PSTREAM';
+        el.textContent = title || 'ZSTREAM';
+        el.title = title || 'ZSTREAM';
       }
     });
   </script>

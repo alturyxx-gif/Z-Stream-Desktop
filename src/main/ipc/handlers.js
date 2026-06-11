@@ -383,7 +383,7 @@ class IPCHandlers {
           if (streamHostname) {
             const requestHostname = parsedHostname.replace(/^www\./, '');
             if (requestHostname === streamHostname.replace(/^www\./, '')) {
-              requestHeaders['X-P-Stream-Client'] = 'desktop';
+              requestHeaders['X-Z-Stream-Client'] = 'desktop';
             }
           }
         } catch (_) {

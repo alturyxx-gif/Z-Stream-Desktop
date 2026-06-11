@@ -50,7 +50,7 @@ async function loadState() {
       document.getElementById('page-url-input').value = url;
       document.getElementById('stat-backend').textContent = url;
     }
-    document.getElementById('stat-hostname').textContent = window.location.hostname || 'pstream.net';
+    document.getElementById('stat-hostname').textContent = window.location.hostname || 'zstream.mov';
   } catch {}
   try {
     const ws = await window.settings.getWarpStatus();
@@ -182,8 +182,8 @@ document.getElementById('reset-app-btn').addEventListener('click', async () => {
 
 // UNINSTALL
 document.getElementById('uninstall-btn').addEventListener('click', async () => {
-  if (!confirm('Permanently delete P-Stream and all data? Cannot be undone.')) return;
-  if (!confirm('Final confirmation: uninstall P-Stream?')) return;
+  if (!confirm('Permanently delete Z-Stream and all data? Cannot be undone.')) return;
+  if (!confirm('Final confirmation: uninstall Z-Stream?')) return;
   const btn = document.getElementById('uninstall-btn');
   btn.disabled = true; btn.textContent = 'Uninstalling...';
   try {

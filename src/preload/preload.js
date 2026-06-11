@@ -51,7 +51,7 @@ window.addEventListener('message', async (event) => {
   }
 });
 
-contextBridge.exposeInMainWorld('__PSTREAM_DESKTOP__', true);
+contextBridge.exposeInMainWorld('__ZSTREAM_DESKTOP__', true);
 contextBridge.exposeInMainWorld('__MW_DESKTOP__', true);
 contextBridge.exposeInMainWorld('__SUDO_DESKTOP__', true);
 
@@ -65,7 +65,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
   onTitleUpdate: (callback) => ipcRenderer.on('update-title', (_e, title) => callback(title)),
 });
 
-contextBridge.exposeInMainWorld('PSTREAMSETUP', {
+contextBridge.exposeInMainWorld('ZSTREAMSETUP', {
   saveDomain: (domain) => ipcRenderer.invoke('save-domain', domain),
 });
 
@@ -130,10 +130,10 @@ function injectEarlyScript() {
   script.remove();
 }
 
-// Inject P-Stream userscript for additional sources
+// Inject Z-Stream userscript for additional sources
 function injectUserscript() {
   const script = document.createElement('script');
-  script.src = 'https://raw.githubusercontent.com/xp-technologies-dev/userscript/main/p-stream.user.js';
+  script.src = 'https://raw.githubusercontent.com/xp-technologies-dev/userscript/main/z-stream.user.js';
   (document.head || document.documentElement)?.appendChild(script);
 }
 
@@ -184,10 +184,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
 // Extension detection flags
 contextBridge.exposeInMainWorld('__EXTENSION_ACTIVE__', true);
-contextBridge.exposeInMainWorld('__PSTREAM_EXTENSION__', true);
-contextBridge.exposeInMainWorld('__PSTREAM_EXTENSION_CACHED__', true);
+contextBridge.exposeInMainWorld('__ZSTREAM_EXTENSION__', true);
+contextBridge.exposeInMainWorld('__ZSTREAM_EXTENSION_CACHED__', true);
 
-contextBridge.exposeInMainWorld('__pstreamExtension', {
+contextBridge.exposeInMainWorld('__zstreamExtension', {
   isActive: () => true,
   sendMessage: () => Promise.resolve({ success: true }),
 });
@@ -195,17 +195,17 @@ contextBridge.exposeInMainWorld('__pstreamExtension', {
 window.addEventListener('DOMContentLoaded', () => {
   window.__EXTENSION_ACTIVE__ = true;
 
-  window.addEventListener('pstream-extension-ping', () => {
-    window.dispatchEvent(new CustomEvent('pstream-extension-pong', {
+  window.addEventListener('zstream-extension-ping', () => {
+    window.dispatchEvent(new CustomEvent('zstream-extension-pong', {
       detail: { active: true }
     }));
   });
 
   window.addEventListener('message', (e) => {
-    if (e.data?.type === 'PSTREAM_EXTENSION_CHECK' || e.data?.type === 'MW_EXTENSION_CHECK') {
-      window.postMessage({ type: 'PSTREAM_EXTENSION_RESPONSE', active: true }, '*');
+    if (e.data?.type === 'ZSTREAM_EXTENSION_CHECK' || e.data?.type === 'MW_EXTENSION_CHECK') {
+      window.postMessage({ type: 'ZSTREAM_EXTENSION_RESPONSE', active: true }, '*');
     }
   });
 });
 
-console.log('P-Stream Desktop Preload Loaded');
+console.log('Z-Stream Desktop Preload Loaded');

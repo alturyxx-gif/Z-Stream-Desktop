@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>P-Stream Settings</title>
+<title>Z-Stream Settings</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -14,7 +14,7 @@
 <div class="titlebar">
   <div class="titlebar-left">
     <img src="logo.png" width="18" height="18" style="border-radius:4px;flex-shrink:0;" draggable="false"/>
-    <span class="titlebar-title">P-Stream — App Settings</span>
+    <span class="titlebar-title">Z-Stream — App Settings</span>
   </div>
   <button class="titlebar-close" id="close-btn" title="Close">
     <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -66,7 +66,7 @@
         <div class="card-label">App Version</div>
         <div class="card-row">
           <div class="crow-info">
-            <div class="crow-title">P-Stream Desktop</div>
+            <div class="crow-title">Z-Stream Desktop</div>
             <div class="crow-desc" id="version-text">Loading...</div>
           </div>
           <div class="btn-group">
@@ -84,7 +84,7 @@
             <div class="crow-desc">The URL loaded on startup. Change if your region blocks the default domain.</div>
           </div>
           <div class="input-row">
-            <input type="url" id="page-url-input" class="input" placeholder="https://pstream.net"/>
+            <input type="url" id="page-url-input" class="input" placeholder="https://zstream.mov"/>
             <button class="btn btn-accent" id="save-page-url-btn">Save</button>
           </div>
           <div class="feedback" id="page-url-feedback"></div>
@@ -95,8 +95,8 @@
         <div class="card-label">Uninstall</div>
         <div class="card-row">
           <div class="crow-info">
-            <div class="crow-title">Uninstall P-Stream</div>
-            <div class="crow-desc">Permanently remove P-Stream and all its data from your system.</div>
+            <div class="crow-title">Uninstall Z-Stream</div>
+            <div class="crow-desc">Permanently remove Z-Stream and all its data from your system.</div>
           </div>
           <button class="btn btn-danger" id="uninstall-btn">Uninstall App</button>
         </div>
@@ -124,7 +124,7 @@
         <div class="card-row">
           <div class="crow-info">
             <div class="crow-title">Enable WARP on Launch</div>
-            <div class="crow-desc">Automatically connect WARP when P-Stream starts.</div>
+            <div class="crow-desc">Automatically connect WARP when Z-Stream starts.</div>
           </div>
           <label class="toggle">
             <input type="checkbox" id="warp-launch-toggle"/>
@@ -141,7 +141,7 @@
             <div class="crow-desc">Connect to a custom backend to store your watch history and preferences.</div>
           </div>
           <div class="input-row">
-            <input type="url" id="stream-url-input" class="input" placeholder="https://backend.pstream.net"/>
+            <input type="url" id="stream-url-input" class="input" placeholder="https://backend.zstream.mov"/>
             <button class="btn btn-accent" id="save-url-btn">Save</button>
           </div>
           <div class="feedback" id="url-feedback"></div>

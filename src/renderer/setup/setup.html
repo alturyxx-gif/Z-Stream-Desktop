@@ -25,11 +25,11 @@
     <button class="dot" style="background:#ef4444" onclick="window.electronAPI.closeWindow()"></button>
   </div>
   <img src="logo.png" width="72" height="72" style="border-radius:16px;margin-bottom:4px;" draggable="false"/>
-  <h1>P-Stream Desktop</h1>
-  <p>Enter the URL of your P-Stream-compatible site.</p>
-  <input id="u" placeholder="e.g. pstream.net" autofocus spellcheck="false" />
+  <h1>Z-Stream Desktop</h1>
+  <p>Enter the URL of your Z-Stream-compatible site.</p>
+  <input id="u" placeholder="e.g. zstream.mov" autofocus spellcheck="false" />
   <button class="go" onclick="go()">Launch →</button>
-  <span class="hint">Reset: delete %APPDATA%\pstream-desktop\config.json</span>
+  <span class="hint">Reset: delete %APPDATA%\zstream-desktop\config.json</span>
   <script>
     document.getElementById('u').addEventListener('keydown', e => { if(e.key==='Enter') go(); });
     function go() { const v = document.getElementById('u').value.trim(); if(v) window.electronAPI.setUrl(v); }

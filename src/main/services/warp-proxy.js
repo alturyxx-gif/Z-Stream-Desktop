@@ -521,7 +521,7 @@ BindAddress = ${this.proxyHost}:${this.proxyPort + 1}
     return new Promise((resolve, reject) => {
       const options = {
         headers: {
-          'User-Agent': 'P-Stream-Desktop',
+          'User-Agent': 'Z-Stream-Desktop',
           Accept: 'application/json'
         },
         timeout: 10000
@@ -558,7 +558,7 @@ BindAddress = ${this.proxyHost}:${this.proxyPort + 1}
     return new Promise((resolve, reject) => {
       const options = {
         headers: {
-          'User-Agent': 'P-Stream-Desktop'
+          'User-Agent': 'Z-Stream-Desktop'
         },
         timeout: 30000
       };
